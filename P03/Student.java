@@ -5,6 +5,9 @@ public class Student{
     Account account;
 
    public Student(String name, int id, String email){
+        if(!(email.endsWith("uta.edu"))){
+            throw new IllegalArgumentException("Non-UTA email address: "+email);
+        }
         this.name=name;
         this.id=id;
         this.email=email;
