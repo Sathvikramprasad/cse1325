@@ -5,6 +5,14 @@ import customer.Student;
 import customer.Unlimited;
 import java.util.ArrayList;
 import product.Media;
+/**
+* The Moes class manages media and student accounts, has methods to add and list media,
+ manages student points, and plays media.
+* @author           Sathvik Ramprasad
+* @version          0.2
+* @since            0.2
+* @license.agreement Gnu General Public License 3.0
+*/
 
 public class Moes{
     private ArrayList<Media> library = new ArrayList<>();
@@ -12,6 +20,12 @@ public class Moes{
     public void addMedia(Media media){
         library.add(media);
     }
+    /**
+ * Returns a list of all media objects in the library, numbered by their position.
+ * 
+ * @return       a string representing the list of media objects with its index numbers.
+ * @since        0.2
+ */
     public String getMediaList(){
         String output = "";
         int i = 0;
@@ -21,9 +35,21 @@ public class Moes{
         }
         return output;
     }
+    /**
+ * Adds a student to the customers list.
+ * 
+ * @param       student Adds a student to the system.
+ * @since       0.2
+ */
     public void addStudent(Student student){
         customers.add(student);
     }
+    /**
+ * Returns the list of all student objects in the customer list, with index of their position.
+ * 
+ * @return     returns a string representing the list of students with their index numbers.
+ * @since       0.2
+ */
     public String getStudentList(){
         int i = 0;
         String output = "";
@@ -33,6 +59,13 @@ public class Moes{
         }
         return output;       
     } 
+    /**
+ * Retrieves available points for a student's account, based on the account type.
+ * 
+ * @param      num The index of the student in the customer list.
+ * @return     returns the number of points available in the student's account.
+ * @since      0.2
+ */
      public int getPoints(int num){
         Student student = customers.get(num);
         Account account = student.getAccount();
@@ -46,6 +79,14 @@ public class Moes{
             throw new UnsupportedOperationException("Unknown subclass of Account");
         }
     }
+    /**
+ * Adds points to a student's Alacarte account or provides message for Unlimited accounts.
+ * 
+ * @param      num The index of the student in the customer list.
+ * @param      points The number of points to add to the student's account.
+ * @return     returns a message indicating the point balance for Alacarte accounts, or a message for Unlimited accounts.
+ * @since      0.2
+ */
       public String buyPoints(int num, int points){
         Student student = customers.get(num);
         Account account = student.getAccount();
@@ -61,6 +102,14 @@ public class Moes{
             throw new UnsupportedOperationException("Unknown subclass of Account");
         }
     }
+    /**
+ * Allows a student to play the selected media, only if their account has sufficient points.
+ * 
+ * @param      studentNumber The index of the student in the customer list.
+ * @param      mediaNumber The index of the media in the library list.
+ * @return     returns a message indicating whether the media is playing or if more points are required.
+ * @since      0.2
+ */
     public String playMedia(int studentNumber, int mediaNumber){
         Student student = customers.get(studentNumber);
         Media media = library.get(mediaNumber);        
