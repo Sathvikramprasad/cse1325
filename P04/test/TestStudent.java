@@ -30,7 +30,7 @@ public class TestStudent{
             System.err.println("No Exception thrown");
             failureCount++;
         }
-        Media m1=new Media("song1", "https://www.youtube.com/", 76);
+        Media m1=new Media("song1", "https://www.youtube.com/", 0);
        if(!student1.requestMedia(m1).equals("Playing song1 (https://www.youtube.com/)")){
         System.err.println("Wrong output for request media");
         failureCount++;
