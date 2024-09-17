@@ -4,7 +4,7 @@ import product.Media;
 class TestMedia{
     public static void main(String args[]) {
         int failureCount = 0;
-        Media media = new Media("thing to test", "https://www.youtube.com/");
+        Media media = new Media("thing to test", "https://www.youtube.com/", 56);
        if(!media.toString().equals("thing to test (https://www.youtube.com/)")){
         System.err.println("FAIL");
         failureCount++;
@@ -13,7 +13,7 @@ class TestMedia{
     String invalidURLs[] ={" hello.world", "htt://badurl.com", "flub://badurl.com"};
        try{
         for(String s: validURLs){
-            new Media("title", s);
+            new Media("title", s, 23);
         }
         }
         catch(RuntimeException e){
@@ -23,7 +23,7 @@ class TestMedia{
         for(String s: invalidURLs){
             boolean errorThrown = false;
             try {
-              new Media("title", s);  
+              new Media("title", s, 35);  
             } 
             catch (RuntimeException e) {
                 errorThrown = true;

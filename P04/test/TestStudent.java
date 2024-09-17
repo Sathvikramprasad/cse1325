@@ -1,6 +1,6 @@
 package test;
-import product.Media;
 import customer.Student;
+import product.Media;
 public class TestStudent{
     public static void main(String args[]) {
         int failureCount = 0;
@@ -30,7 +30,7 @@ public class TestStudent{
             System.err.println("No Exception thrown");
             failureCount++;
         }
-        Media m1=new Media("song1", "https://www.youtube.com/");
+        Media m1=new Media("song1", "https://www.youtube.com/", 76);
        if(!student1.requestMedia(m1).equals("Playing song1 (https://www.youtube.com/)")){
         System.err.println("Wrong output for request media");
         failureCount++;
