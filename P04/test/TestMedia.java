@@ -5,7 +5,7 @@ class TestMedia{
     public static void main(String args[]) {
         int failureCount = 0;
         Media media = new Media("thing to test", "https://www.youtube.com/", 0);
-       if(!media.toString().equals("thing to test (https://www.youtube.com/)")){
+       if(!media.toString().equals("thing to test (https://www.youtube.com/, 0 points)")){
         System.err.println("FAIL");
         failureCount++;
        }

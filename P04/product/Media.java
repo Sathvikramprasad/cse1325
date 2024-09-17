@@ -28,7 +28,7 @@ public class Media{
     }
     @Override
     public String toString(){
-        return title + " (" + url + ")" + points;
+        return title + " (" + url + ", " + points + " points)";
     }
     public int getPoints(){
         return points;
