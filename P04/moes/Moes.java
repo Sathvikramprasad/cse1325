@@ -17,8 +17,18 @@ public class Moes{
             i++;
         }
         return output;
-
     }
-    
+    public void addStudent(Student student){
+        customers.add(student);
+    }
+    public String getStudentList(){
+        int i = 0;
+        String output = "";
+        for(Student s: customers){
+            output = output + i + ") " + s.toString() + "\n";
+            i++;
+        }
+        return output;       
+    }   
     
 }
