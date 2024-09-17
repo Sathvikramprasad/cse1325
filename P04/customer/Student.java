@@ -6,7 +6,8 @@ import product.Media;
  * @author      Sathvik Ramprasad
  * @version     0.2
  * @since       0.1
- */
+ * @license.agreement Gnu General Public License 3.0
+*/
 public class Student{
     String name;
     int id;
