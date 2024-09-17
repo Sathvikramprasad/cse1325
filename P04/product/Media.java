@@ -1,6 +1,13 @@
 package product;
 import java.net.MalformedURLException;
 import java.net.URL;
+/**
+ * Takes title url as input and confirms the media that the user chose
+ * @author      Sathvik Ramprasad
+ * @version     0.2
+ * @since       0.2
+ * @license.agreement Gnu General Public License 3.0
+ * */
 
 public class Media{
     String title;
