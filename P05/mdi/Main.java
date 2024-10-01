@@ -17,6 +17,7 @@ public class Main{
         String name = sc.nextLine();
         System.out.print("Student ID? ");
         int id = sc.nextInt();
+        String temp = sc.nextLine();
         System.out.println("Student email? ");
         String email = sc.nextLine();
         System.out.print("(a)lacarte or (u)nlimited? ");
@@ -32,14 +33,14 @@ public class Main{
         moes.addStudent(student);
         System.out.println(menu);
         output="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
-        output+="Added Student "+ student;
+        output+="Added Student "+ student+"\n";
         output+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         
     }
     private void listStudents(){ 
         System.out.println(menu);
         output="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
-        output+= moes.getStudentList();
+        output+= moes.getStudentList()+"\n";
         output+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";     
        
     }
@@ -55,7 +56,7 @@ public class Main{
         moes.addMedia(media);
         System.out.println(menu);
         output="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
-        output+= "Added media "+ media ;
+        output+= "Added media "+ media +"\n";
         output+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
 
         
@@ -63,7 +64,7 @@ public class Main{
     private void listMedia(){
         System.out.println(menu);
         output="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
-        output+= moes.getMediaList();
+        output+= moes.getMediaList()+"\n";
         output+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";        
        
     }
@@ -72,12 +73,13 @@ public class Main{
         Scanner sc = new Scanner(System.in);
         System.out.println("Student number? ");
         int studentNumber = sc.nextInt();
+        String temp = sc.nextLine();
         System.out.println(moes.getMediaList());
         System.out.println("Media number? ");
         int mediaNumber = sc.nextInt();
         System.out.println(menu);
         output="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
-        output+= moes.playMedia(studentNumber, mediaNumber);
+        output+= moes.playMedia(studentNumber, mediaNumber)+"\n";
         output+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
         
        
@@ -89,7 +91,7 @@ public class Main{
         int studentNumber = sc.nextInt();
         System.out.println(menu);
         output="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
-        output+="Points remaining "+ moes.getPoints(studentNumber);
+        output+="Points remaining "+ moes.getPoints(studentNumber)+"\n";
         output+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
       
         
@@ -99,20 +101,21 @@ public class Main{
         System.out.println(moes.getStudentList());
         System.out.println("Student number? ");
         int studentNumber = sc.nextInt();
+        String temp = sc.nextLine();
         System.out.println("Points remaining = "+moes.getPoints(studentNumber)+"\n");
         System.out.println("Enter number of points to buy ");
         int numPoints = sc.nextInt();
         if(numPoints<0){
             
            output="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
-           output+="No purchasing negative points!";
+           output+="No purchasing negative points!\n";
            output+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
              
         }
         else{
              
             output="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
-            output+=moes.buyPoints(studentNumber, numPoints);
+            output+=moes.buyPoints(studentNumber, numPoints)+"\n";
             output+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
             
         }
@@ -123,14 +126,14 @@ public class Main{
         output = "";
         menu = new Menu();
         running = true;
-        menu.addMenuItem(new MenuItem("0) Exit", ()-> endApp()));
-        menu.addMenuItem(new MenuItem("1) Play media",  ()-> playMedia()));
-        menu.addMenuItem(new MenuItem("2) List media",  ()-> listMedia()));
-        menu.addMenuItem(new MenuItem("3) List available points",  ()->listAvailablePoints()));
-        menu.addMenuItem(new MenuItem("4) Buy points",  ()-> buyPoints()));
-        menu.addMenuItem(new MenuItem("5) Add media",  ()-> addMedia()));
-        menu.addMenuItem(new MenuItem("6) List all students", ()-> listStudents()));
-        menu.addMenuItem(new MenuItem("7) Add a student", ()-> addStudent()));
+        menu.addMenuItem(new MenuItem("Exit", ()-> endApp()));
+        menu.addMenuItem(new MenuItem("Play media",  ()-> playMedia()));
+        menu.addMenuItem(new MenuItem("List media",  ()-> listMedia()));
+        menu.addMenuItem(new MenuItem("List available points",  ()->listAvailablePoints()));
+        menu.addMenuItem(new MenuItem("Buy points",  ()-> buyPoints()));
+        menu.addMenuItem(new MenuItem("Add media",  ()-> addMedia()));
+        menu.addMenuItem(new MenuItem("List all students", ()-> listStudents()));
+        menu.addMenuItem(new MenuItem("Add a student", ()-> addStudent()));
         
 
 
