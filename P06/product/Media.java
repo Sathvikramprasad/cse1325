@@ -1,9 +1,9 @@
 package product;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 /**
  * Takes title url as input and confirms the media that the user chose
  * @author      Sathvik Ramprasad
@@ -41,7 +41,7 @@ public class Media{
         bw.write(url + "\n");
         bw.write(Integer.toString(points) + '\n');
     }
-    public Media(BufferedReader br){
+    public Media(BufferedReader br)throws IOException{
         this.title=br.readLine();
         this.url=br.readLine();
         this.points=Integer.parseInt(br.readLine());
