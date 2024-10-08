@@ -1,4 +1,7 @@
 package customer;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import product.Media;
 /**
 * an abstract class representing a general account for accessing media.
@@ -38,5 +41,14 @@ public abstract class Account{
  */
     public abstract String play(Media media);
 
+    public void save(BufferedWriter bw) throws IOException{
+        bw.write(nextAccountNumber + "\n");
+        bw.write(accountNumber + "\n");
+    }
+    public Account(BufferedReader br) throws IOException{
+        nextAccountNumber=Integer.parseInt(br.readLine());
+        this.accountNumber=Integer.parseInt(br.readLine());
+    }
 
-}
+    }
+
