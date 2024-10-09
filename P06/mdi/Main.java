@@ -3,6 +3,11 @@ import customer.Student;
 import java.util.Scanner;
 import moes.Moes;
 import product.Media;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
 
 
 public class Main{
@@ -165,6 +170,55 @@ public class Main{
     public static void main(String args[]) {
         Main m = new Main();
         m.mdi();
+    }
+     private static final String FILE_EXTENSION=".moes";
+    private static Moes newMoes;
+    private static String filename;
+
+    private static void newMoes(){
+    newMoes=new Moes();
+    }
+    private static void save(){
+        try(BufferedWriter bw=new BufferedWriter(new FileWriter(filename))){
+        bw.write("magic\n");
+        bw.write("1\n");
+        newMoes.save(bw);
+        }catch(IOException e){
+            System.out.println("Error saving: " + e.getMessage());
+        }
+    }
+    private static void open(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter filename: ");
+        String fileName=sc.nextLine();
+        if(fileName.isEmpty()){
+            return;
+        }
+        if(!fileName.endsWith("1")){
+            fileName+=FILE_EXTENSION;
+        }
+        try(BufferedReader br=new BufferedReader(new FileReader(fileName))){
+            String magicCookie=br.readLine();
+            String fileVersion=br.readLine();
+            if(!magicCookie.equals("1")||!fileVersion.equals("1")) {
+                throw new IOException("Invalid file format");
+            }       
+        newMoes=new Moes(br);
+        filename=fileName;
+        }catch(IOException e){
+        System.out.println("Error opening: " + e.getMessage());
+        }
+    }
+        private static void saveAs(){
+        Scanner sc=new Scanner(System.in);    
+        System.out.println("Enter filename: ");
+        String fileName=sc.nextLine();
+        if(fileName.isEmpty()){
+            return;
+        }
+        if(!fileName.endsWith("1")){
+            fileName+=FILE_EXTENSION;
+        }
     }
 
 }

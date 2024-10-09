@@ -3,6 +3,9 @@ import customer.Account;
 import customer.Alacarte;
 import customer.Student;
 import customer.Unlimited;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import product.Media;
 /**
@@ -115,4 +118,29 @@ public class Moes{
         Media media = library.get(mediaNumber);        
         return student.requestMedia(media);
     } 
+    private ArrayList<Media>mediaList;
+    private ArrayList<Student>studentList;
+
+    public void save(BufferedWriter bw) throws IOException{
+        bw.write(mediaList.size() + "\n");
+        for(Media media : mediaList){
+            media.save(bw);
+        }
+        bw.write(studentList.size() + "\n");
+        for(Student student : studentList){
+            student.save(bw);
+        }
+    }
+    public Moes(BufferedReader br) throws IOException{
+        int mediaSize=Integer.parseInt(br.readLine());
+        mediaList=new ArrayList<>(mediaSize);
+        for(int i=0; i<mediaSize; i++){
+            mediaList.add(new Media(br));
+        }
+        int studentSize=Integer.parseInt(br.readLine());
+        studentList=new ArrayList<>(studentSize);
+        for(int i=0; i<studentSize; i++){
+            studentList.add(new Student(br));
+        }
+    }
 }

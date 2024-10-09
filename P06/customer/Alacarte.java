@@ -1,4 +1,7 @@
 package customer;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import product.Media;
 /**
 * represents an account type where media access is based on points available
@@ -44,5 +47,17 @@ public class Alacarte extends Account{
             pointsRemaining -= media.getPoints();
             return "Playing "+ media.toString();
         }
+    }
+    public Alacarte(int pointsRemaining){
+        super();
+        this.pointsRemaining=pointsRemaining;
+    }
+    public void save(BufferedWriter bw) throws IOException{
+        super.save(bw);
+        bw.write(Integer.toString(pointsRemaining) + "\n");
+    }
+    public Alacarte(BufferedReader br) throws IOException{
+        super(br);
+        this.pointsRemaining=Integer.parseInt(br.readLine());
     }
 }

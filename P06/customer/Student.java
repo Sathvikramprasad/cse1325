@@ -1,5 +1,8 @@
 package customer;
 import product.Media;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 /**
  * the Student class represents a UTA student with their media account, granting media access and management.
  * 
@@ -55,6 +58,24 @@ public class Student{
     public Account getAccount(){
         return account;
     }
-
+     public void save(BufferedWriter bw) throws IOException{
+        bw.write(name + "\n");
+        bw.write(" " + id + "\n");
+        bw.write(email + "\n");
+        bw.write(" " + account.getClass().getName() + "\n");
+        account.save(bw);
+    }
+    public Student(BufferedReader br) throws IOException{
+        this.name=br.readLine();
+        this.id=Integer.parseInt(br.readLine());
+        this.email=br.readLine();
+        String accountType=br.readLine();
+        if(accountType.equals("Unlimited")){
+            this.account=new Unlimited(br);
+        }
+        else{
+            this.account=new Alacarte(br);
+        }
+    }
 
 }

@@ -1,8 +1,8 @@
 package customer;
-import product.Media;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import product.Media;
 /**
 * represents an account type that has unlimited access to media
 *
@@ -26,10 +26,10 @@ import java.io.IOException;
        public Unlimited(){
          super();
        }
-       public Unlimited(BufferedWriter bw) throws IOException{
+       public void save(BufferedWriter bw) throws IOException{
          super.save(bw);
        }
-       public void save(BufferedReader br) throws IOException{
+       public Unlimited(BufferedReader br) throws IOException{
          super(br);
        }
  }
