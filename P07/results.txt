@@ -1,0 +1,190 @@
+====================
+HOMEWORK P07 RESULTS
+====================
+
+Fall 2024
+
+
+FULL CREDIT
+===========
+
+NOTE: These are measurements which may vary plus your opinions which may vary a LOT. We won't grade for "correctness", just completeness.
+
+QUESTION 1: What Boggle command line arguments ([#boards] and if not default [boardSize])did you use to achieve a 30 to 45 second runtime? Note: We're only interested in the "real" seconds for this question.
+
+
+Solution- 43 board, 100 boardsize and 1 thread
+
+QUESTION 2: Provide the full output (including the time command) for your program, with 1 to 16 threads. **Ensure that the result is the same for all 16 runs.** With bash, you can run all of these with a single command if you like, replacing "90" with whatever Boggle command line arguments you identified in QUESTION 1: 
+
+for i in {1..16} ; do echo ; echo $i Threads; time java Boggle 90 - $i ; done
+Solution - sathv@Sathvik MINGW64 /c/UTA/Fall 2024/Cse-1325/cse1325/P07 (main)
+$ for i in {1..16} ; do echo ; echo $i Threads; time java Boggle 43 100 $i ; done
+
+1 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m40.521s
+user    0m0.000s
+sys     0m0.031s
+
+2 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m21.213s
+user    0m0.000s
+sys     0m0.000s
+
+3 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m19.560s
+user    0m0.000s
+sys     0m0.000s
+
+4 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m17.615s
+user    0m0.000s
+sys     0m0.015s
+
+5 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m15.582s
+user    0m0.000s
+sys     0m0.000s
+
+6 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m12.813s
+user    0m0.000s
+sys     0m0.015s
+
+7 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m11.997s
+user    0m0.015s
+sys     0m0.046s
+
+8 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m13.000s
+user    0m0.000s
+sys     0m0.015s
+
+9 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m13.917s
+user    0m0.000s
+sys     0m0.031s
+
+10 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m12.450s
+user    0m0.015s
+sys     0m0.000s
+
+11 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m16.118s
+user    0m0.000s
+sys     0m0.015s
+
+12 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m14.206s
+user    0m0.000s
+sys     0m0.031s
+
+13 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m12.260s
+user    0m0.000s
+sys     0m0.046s
+
+14 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m10.469s
+user    0m0.015s
+sys     0m0.015s
+
+15 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m18.551s
+user    0m0.000s
+sys     0m0.000s
+
+16 Threads
+
+Found 24518 solutions
+Hash is 0x2CE19749
+
+real    0m16.905s
+user    0m0.015s
+sys     0m0.000s
+
+QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program slightly?  Why or why not?
+
+Soltution - It starts to speed up when i add initial few threads but eventually increases time because it overloads the system
+
+QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
+
+Solution - Yes, it causes System overload because when we add more number of threads it starts running parallelly.
+
+
+
+
+
+
+
+BONUS
+=====
+
+QUESTION 5: Time your version of Boggle as you did for the full credit version. Is this additional layer of threading faster, slower, or roughly equivalent in performance? Why?
+
+
+YOUR Timing:
+
+
