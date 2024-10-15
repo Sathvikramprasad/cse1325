@@ -1,15 +1,11 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
-import java.util.List;
 import java.util.ArrayList;
-
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.HashSet;
-
-import java.util.Objects;
 
 public class Boggle {
     private static List<Board> boards = new ArrayList<>();
@@ -24,7 +20,19 @@ public class Boggle {
     
     // =========== WRITE AND INVOKE THIS METHOD FOR EACH THREAD ===========
     private static void solveRange(int first, int lastPlusOne, int threadNumber) {
-    }
+        for(int i=first; i<lastPlusOne; i++){
+            Board board=boards.get(i);
+            Solver solver=new Solver(board, threadNumber, verbosity);
+            for(String word : words) {
+                    Solution solution = solver.solve(word);
+                    if(solution != null) {
+                        synchronized(solutions){
+                            solutions.add(solution);
+                        }
+                }
+             }
+        }
+    }    
     // =========== END THREAD METHOD ===========
 
 
