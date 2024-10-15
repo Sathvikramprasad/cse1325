@@ -84,14 +84,29 @@ public class Boggle {
             
             // =========== CHANGE THIS BLOCK OF CODE TO ADD THREADING ===========
             // Find words on the Boggle boards, collecting the solutions in a TreeSet
-            int threadNumber = 0; // This will be set to a unique int for each of your threads
-            for(Board board : boards) {
-                Solver solver = new Solver(board, threadNumber, verbosity);
-                for(String word : words) {
-                    Solution solution = solver.solve(word);
-                    if(solution != null) solutions.add(solution);
+            ArrayList<Thread>threads=new ArrayList<>();
+            int boardsPerThread=numberOfBoards / numThreads;
+                for(int i=0; i<numThreads; i++){
+                    final int threadNumber=i;
+                    final int start=i*boardsPerThread;
+                    final int end;
+                    if(i==numThreads-1){
+                        end=numberOfBoards;
+                    }
+                    else{
+                        end=start+boardsPerThread;
+                    }
+                    Thread thread=new Thread(()-> solveRange(start, end, threadNumber));
+                    threads.add(thread);
+                    thread.start();
                 }
-            }
+                for(Thread thread:threads){
+                    try {
+                        thread.join();
+                    } catch (InterruptedException e) {
+                        System.err.println("Thread interrupted: " + e);
+                    }
+                }
             // =========== END BLOCK OF CODE TO ADD THREADING ===========
 
             // Print all the solutions if requested
