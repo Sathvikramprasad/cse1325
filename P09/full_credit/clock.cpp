@@ -1,4 +1,6 @@
 #include "clock.h"
+#include <iomanip>
+#include <sstream>
 
 Clock::Clock(int hours, int minutes, int seconds)
 : _hours(hours), _minutes(minutes), _seconds(seconds){
