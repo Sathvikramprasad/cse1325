@@ -15,12 +15,16 @@ class Purse{
 
     bool operator==(const Purse& purse)const;
     bool operator!=(const Purse& purse) const;
-    bool operator<(const Purse& other) const;
-    bool operator<=(const Purse& other) const;
-    bool operator>(const Purse& other) const;
-    bool operator>=(const Purse& other) const;
+    bool operator<(const Purse& purse) const;
+    bool operator<=(const Purse& purse) const;
+    bool operator>(const Purse& purse) const;
+    bool operator>=(const Purse& purse) const;
 
-    Purse& operator+=(const Purse& other);
-    Purse& operator-=(const Purse& other);
+    Purse& operator++();    
+    Purse operator++(int);
+    Purse operator+(const Purse& purse) const;
+    Purse operator-(const Purse& purse) const;
+    Purse& operator+=(const Purse& purse);
+    Purse& operator-=(const Purse& purse);
 };
 #endif
